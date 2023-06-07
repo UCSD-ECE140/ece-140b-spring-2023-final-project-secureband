@@ -431,15 +431,12 @@ void loop()
 
               int message_size = strlen(latitude) + strlen(longitude) + 2;
 
-              Serial.print("String Lengths: ");
-              Serial.println(message_size);
               char formatted_gps[message_size];
               
               strcpy(formatted_gps, latitude);
               strcat(formatted_gps, ",");
               strcat(formatted_gps, longitude);
 
-//              sprintf(formatted_gps, "%s,%s", latitude, longitude);
 
               Serial.print("Formatted GPS: ");
               Serial.println(formatted_gps);
@@ -449,8 +446,6 @@ void loop()
       
               mqtt.publish(gps_topic, formatted_gps);
 
-
-//              free(formatted_gps);
               break;
           }
           digitalWrite(LED_PIN, !digitalRead(LED_PIN));
